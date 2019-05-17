@@ -9,13 +9,16 @@
 <title>SpringJPA</title>
 </head>
 <body>
-
+	<form action="${pageContext.request.contextPath}/save" method="POST">
+		<input type="submit" value="Agregar nuevo usuario">
+	</form>
 	<table>
 		<tr>
 			<th>Name</th>
 			<th>Last Name</th>
 			<th>Age</th>
 			<th>Status</th>
+			<th>Options</th>
 		</tr>
 			<c:forEach items="${students}" var="students">
 				<tr>
@@ -23,6 +26,10 @@
 					<td>${students.lName}</td>
 					<td>${students.sAge}</td>
 					<td>${students.activoDelegate}</td>
+					<td>
+						<a href="${pageContext.request.contextPath}/delete/${students.cStudent}">Eliminar</a>
+						<a href="${pageContext.request.contextPath}/edit/${students.cStudent}">Editar</a>
+					</td>
 				</tr>	
 			</c:forEach>
 	</table>
